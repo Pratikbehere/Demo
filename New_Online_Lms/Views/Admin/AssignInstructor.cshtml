@@ -1,0 +1,16 @@
+﻿@model New_Online_Lms.Models.Course
+
+@{
+    ViewBag.Title = "Assign Instructor";
+}
+
+<h2>Assign Instructor for @Model.Title</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label for="Instructor">Instructor</label>
+        @Html.DropDownList("InstructorId", ViewBag.Instructors as SelectList, "Select Instructor", new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Assign</button>
+}

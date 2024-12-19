@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Manage Courses";
+}
+
+<h2>Courses</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Instructor</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.Title</td>
+                <td>@course.Description</td>
+                <td>@(course.Instructor != null ? course.Instructor.Name : "Not Assigned")</td>
+                <td>
+                    <a href="@Url.Action("AssignInstructor", "Admin", new { id = course.CourseId })">Assign Instructor</a> |
+                    <a href="@Url.Action("DeleteCourse", "Admin", new { id = course.CourseId })" onclick="return confirm('Are you sure?');">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("AddCourse", "Admin")" class="btn btn-primary">Add New Course</a>

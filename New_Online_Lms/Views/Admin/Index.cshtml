@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>Welcome to the Admin Dashboard!</p>
+<p>Your UserId: @ViewBag.UserId</p>
+
+@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<ul>
+    <li><a href="@Url.Action("ManageCourses", "Admin")">Manage Courses</a></li>
+    <li><a href="@Url.Action("ViewEnrollments", "Admin")">View Enrollments</a></li>
+    <li><a href="@Url.Action("Logout", "Home")">Logout</a></li>
+</ul>
